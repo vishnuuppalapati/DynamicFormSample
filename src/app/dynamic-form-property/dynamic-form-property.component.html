@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <label [attr.for]="property.key" style="text-align: center;">{{property.label}}</label>
+
+  <div [ngSwitch]="property.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="property.key" [id]="property.key" [type]="property.type">
+
+    <select [id]="property.key" *ngSwitchCase="'dropdown'" [formControlName]="property.key">
+      <option *ngFor="let opt of property.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+    <div *ngSwitchCase="'checkbox'">
+
+
+      <label [id]="property.key" *ngFor="let opt of property.checkoptions">
+        <input type="checkbox" [value]="opt.value">{{opt.value}}
+        <!-- <option type="checkbox"  [value]="opt.value">{{opt.value}}</option> -->
+        <!-- <input type="checkbox" [formControlName]="opt.v">
+        {{opt.value}} -->
+      </label>
+    </div>
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{property.label}} is required</div>
+</div>
