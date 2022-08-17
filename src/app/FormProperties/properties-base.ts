@@ -6,6 +6,7 @@ export class PropertiesBase<T> {
     order: number;
     controlType: string;
     type: string;
+    id: number;
     options: {key: string, value: string}[];
     checkoptions: {id: number, value: string}[];
   
@@ -17,6 +18,7 @@ export class PropertiesBase<T> {
         order?: number;
         controlType?: string;
         type?: string;
+        id?: number;
         options?: {key: string, value: string}[];
         checkoptions?: {id: number, value: string}[]
       } = {}) {
@@ -27,6 +29,7 @@ export class PropertiesBase<T> {
       this.order = options.order === undefined ? 1 : options.order;
       this.controlType = options.controlType || '';
       this.type = options.type || '';
+      this.id = options.id === undefined ? 1 : options.id;
       this.options = options.options || [];
       this.checkoptions = options.checkoptions || [];
     }

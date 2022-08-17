@@ -12,7 +12,7 @@
 
 
       <label [id]="property.key" *ngFor="let opt of property.checkoptions">
-        <input type="checkbox" [value]="opt.value">{{opt.value}}
+        <input type="checkbox" [value]="opt.value" [formControlName]="opt.value">{{opt.value}}
         <!-- <option type="checkbox"  [value]="opt.value">{{opt.value}}</option> -->
         <!-- <input type="checkbox" [formControlName]="opt.v">
         {{opt.value}} -->

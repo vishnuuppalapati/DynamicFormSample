@@ -14,6 +14,7 @@ export class InputPropertiesControlService {
         properties.forEach(property => {
             group[property.key] = property.required ? new FormControl(property.value || '', Validators.required)
                                                     : new FormControl(property.value || '');
+            
         });
         return new FormGroup(group);
     }
